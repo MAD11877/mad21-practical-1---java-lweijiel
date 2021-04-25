@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Question5
 {
@@ -27,6 +28,39 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
+    System.out.print("Number of numbers:");
+    int amtNum = in.nextInt();
+    int[] num = new int[amtNum];
+
+    for (int i = 0; i < amtNum; i++ ){
+      num[i] = in.nextInt();
+    }
+
+    Arrays.sort(num);
+    int count = 0;
+    int tempCount;
+    int most = 0;
+    int temp;
+
+    for (int i : num)
+    {
+      temp = num[i];
+      tempCount = 1;
+
+      for (int j = i+1; j < num.length; j++)
+      {
+        if (temp == num[j]){
+          tempCount ++;
+        }
+      }
+
+      if (tempCount > count){
+        most = temp;
+        count = tempCount;
+      }
+    }
+
+    System.out.print(most);
     
   }
 }
